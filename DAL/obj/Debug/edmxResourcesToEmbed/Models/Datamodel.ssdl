@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="anidbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ADVERTISEMENT_DETAILS">
+    <Key>
+      <PropertyRef Name="ad_number" />
+    </Key>
+    <Property Name="ad_number" Type="int" Nullable="false" />
+    <Property Name="USER_ID" Type="int" />
+    <Property Name="ad_title" Type="varchar" MaxLength="20" />
+    <Property Name="ad_date" Type="date" Nullable="false" />
+    <Property Name="ad_desc" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="ADVERTISEMENT_TYPE">
+    <Key>
+      <PropertyRef Name="ad_type" />
+    </Key>
+    <Property Name="USER_ID" Type="int" />
+    <Property Name="ad_type" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="IMAGE_INFO">
+    <Key>
+      <PropertyRef Name="image_number" />
+    </Key>
+    <Property Name="ad_number" Type="int" />
+    <Property Name="image_number" Type="int" Nullable="false" />
+    <Property Name="image_file_name" Type="varchar" MaxLength="20" />
+    <Property Name="image_path" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="LOGIN_PART">
+    <Key>
+      <PropertyRef Name="USER_ID" />
+    </Key>
+    <Property Name="USER_ID" Type="int" Nullable="false" />
+    <Property Name="PASSWORD" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="USER_DETAILS">
+    <Key>
+      <PropertyRef Name="Email" />
+    </Key>
+    <Property Name="USER_ID" Type="int" />
+    <Property Name="First_Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Last_Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Street" Type="numeric" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="City" Type="varchar" MaxLength="50" />
+    <Property Name="State" Type="varchar" MaxLength="50" />
+    <Property Name="Address" Type="varchar" MaxLength="50" />
+    <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Contact" Type="int" />
+  </EntityType>
+  <Association Name="FK__ADVERTISE__USER___5EBF139D">
+    <End Role="LOGIN_PART" Type="Self.LOGIN_PART" Multiplicity="0..1" />
+    <End Role="ADVERTISEMENT_TYPE" Type="Self.ADVERTISEMENT_TYPE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LOGIN_PART">
+        <PropertyRef Name="USER_ID" />
+      </Principal>
+      <Dependent Role="ADVERTISEMENT_TYPE">
+        <PropertyRef Name="USER_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ADVERTISE__USER___6477ECF3">
+    <End Role="LOGIN_PART" Type="Self.LOGIN_PART" Multiplicity="0..1" />
+    <End Role="ADVERTISEMENT_DETAILS" Type="Self.ADVERTISEMENT_DETAILS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LOGIN_PART">
+        <PropertyRef Name="USER_ID" />
+      </Principal>
+      <Dependent Role="ADVERTISEMENT_DETAILS">
+        <PropertyRef Name="USER_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__IMAGE_INF__ad_nu__6754599E">
+    <End Role="ADVERTISEMENT_DETAILS" Type="Self.ADVERTISEMENT_DETAILS" Multiplicity="0..1" />
+    <End Role="IMAGE_INFO" Type="Self.IMAGE_INFO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ADVERTISEMENT_DETAILS">
+        <PropertyRef Name="ad_number" />
+      </Principal>
+      <Dependent Role="IMAGE_INFO">
+        <PropertyRef Name="ad_number" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__USER_DETA__USER___619B8048">
+    <End Role="LOGIN_PART" Type="Self.LOGIN_PART" Multiplicity="0..1" />
+    <End Role="USER_DETAILS" Type="Self.USER_DETAILS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LOGIN_PART">
+        <PropertyRef Name="USER_ID" />
+      </Principal>
+      <Dependent Role="USER_DETAILS">
+        <PropertyRef Name="USER_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="anidbModelStoreContainer">
+    <EntitySet Name="ADVERTISEMENT_DETAILS" EntityType="Self.ADVERTISEMENT_DETAILS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ADVERTISEMENT_TYPE" EntityType="Self.ADVERTISEMENT_TYPE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="IMAGE_INFO" EntityType="Self.IMAGE_INFO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LOGIN_PART" EntityType="Self.LOGIN_PART" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="USER_DETAILS" EntityType="Self.USER_DETAILS" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__ADVERTISE__USER___5EBF139D" Association="Self.FK__ADVERTISE__USER___5EBF139D">
+      <End Role="LOGIN_PART" EntitySet="LOGIN_PART" />
+      <End Role="ADVERTISEMENT_TYPE" EntitySet="ADVERTISEMENT_TYPE" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ADVERTISE__USER___6477ECF3" Association="Self.FK__ADVERTISE__USER___6477ECF3">
+      <End Role="LOGIN_PART" EntitySet="LOGIN_PART" />
+      <End Role="ADVERTISEMENT_DETAILS" EntitySet="ADVERTISEMENT_DETAILS" />
+    </AssociationSet>
+    <AssociationSet Name="FK__IMAGE_INF__ad_nu__6754599E" Association="Self.FK__IMAGE_INF__ad_nu__6754599E">
+      <End Role="ADVERTISEMENT_DETAILS" EntitySet="ADVERTISEMENT_DETAILS" />
+      <End Role="IMAGE_INFO" EntitySet="IMAGE_INFO" />
+    </AssociationSet>
+    <AssociationSet Name="FK__USER_DETA__USER___619B8048" Association="Self.FK__USER_DETA__USER___619B8048">
+      <End Role="LOGIN_PART" EntitySet="LOGIN_PART" />
+      <End Role="USER_DETAILS" EntitySet="USER_DETAILS" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

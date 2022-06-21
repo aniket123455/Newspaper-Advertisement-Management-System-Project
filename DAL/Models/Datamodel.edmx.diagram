@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="dc054b2c14154bf4844502f7f3f8aadb" Name="Diagram1">
+        <EntityTypeShape EntityType="anidbModel.ADVERTISEMENT_DETAILS" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="anidbModel.ADVERTISEMENT_TYPE" Width="1.5" PointX="3" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="anidbModel.IMAGE_INFO" Width="1.5" PointX="5.25" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="anidbModel.LOGIN_PART" Width="1.5" PointX="0.75" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="anidbModel.USER_DETAILS" Width="1.5" PointX="3" PointY="6.75" IsExpanded="true" />
+        <AssociationConnector Association="anidbModel.FK__ADVERTISE__USER___6477ECF3" ManuallyRouted="false" />
+        <AssociationConnector Association="anidbModel.FK__IMAGE_INF__ad_nu__6754599E" ManuallyRouted="false" />
+        <AssociationConnector Association="anidbModel.FK__ADVERTISE__USER___5EBF139D" ManuallyRouted="false" />
+        <AssociationConnector Association="anidbModel.FK__USER_DETA__USER___619B8048" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

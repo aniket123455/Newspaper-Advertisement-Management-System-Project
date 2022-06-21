@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="anidbModelStoreContainer" CdmEntityContainer="anidbEntities">
+    <EntitySetMapping Name="ADVERTISEMENT_DETAILS">
+      <EntityTypeMapping TypeName="anidbModel.ADVERTISEMENT_DETAILS">
+        <MappingFragment StoreEntitySet="ADVERTISEMENT_DETAILS">
+          <ScalarProperty Name="ad_number" ColumnName="ad_number" />
+          <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+          <ScalarProperty Name="ad_title" ColumnName="ad_title" />
+          <ScalarProperty Name="ad_date" ColumnName="ad_date" />
+          <ScalarProperty Name="ad_desc" ColumnName="ad_desc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ADVERTISEMENT_TYPE">
+      <EntityTypeMapping TypeName="anidbModel.ADVERTISEMENT_TYPE">
+        <MappingFragment StoreEntitySet="ADVERTISEMENT_TYPE">
+          <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+          <ScalarProperty Name="ad_type" ColumnName="ad_type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IMAGE_INFO">
+      <EntityTypeMapping TypeName="anidbModel.IMAGE_INFO">
+        <MappingFragment StoreEntitySet="IMAGE_INFO">
+          <ScalarProperty Name="ad_number" ColumnName="ad_number" />
+          <ScalarProperty Name="image_number" ColumnName="image_number" />
+          <ScalarProperty Name="image_file_name" ColumnName="image_file_name" />
+          <ScalarProperty Name="image_path" ColumnName="image_path" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LOGIN_PART">
+      <EntityTypeMapping TypeName="anidbModel.LOGIN_PART">
+        <MappingFragment StoreEntitySet="LOGIN_PART">
+          <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+          <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USER_DETAILS">
+      <EntityTypeMapping TypeName="anidbModel.USER_DETAILS">
+        <MappingFragment StoreEntitySet="USER_DETAILS">
+          <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+          <ScalarProperty Name="First_Name" ColumnName="First_Name" />
+          <ScalarProperty Name="Last_Name" ColumnName="Last_Name" />
+          <ScalarProperty Name="Street" ColumnName="Street" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Contact" ColumnName="Contact" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
